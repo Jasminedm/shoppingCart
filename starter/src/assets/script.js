@@ -165,9 +165,9 @@ function pay(totalPaid) {
   let total = cartTotal();
 
   if (total > totalPaid) {
-    return total - totalPaid;
-  } else {
     return totalPaid - total;
+  } else {
+    return total - totalPaid;
   }
 }
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
