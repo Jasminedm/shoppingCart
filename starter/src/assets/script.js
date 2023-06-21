@@ -56,7 +56,7 @@ const products = [product1, product2, product3];
 
 
 /* Declare an empty array named cart to hold the items in the cart */
-const cart = [];
+let cart = [];
 
 
 
@@ -68,16 +68,16 @@ const cart = [];
 function addProductToCart(productId) {
   let product;
 
-  if (productId === product1.productId) {
-    product = product1;
-  } else if (productId === product2.productId) {
-    product = product2;
-  } else if (productId === product3.productId) {
-    product = product3;
-  }
+  productId === product1.productId ? product = product1 :
+    
+  productId === product2.productId ? product = product2 :
+    
+  productId === product3.productId ? product = product3 : null;
+  
 
   product.quantity += 1;
-  if (!cart.some(product => product.productId=== productId)) {
+
+  if (!cart.some(item => item.productId=== productId)) {
     cart.push(product);
   }
 }
@@ -90,13 +90,12 @@ function addProductToCart(productId) {
 */
 function increaseQuantity(productId) {
   let product;
-  if (productId === product1.productId) {
-    product = product1;
-  } else if (productId === product2.productId) {
-    product = product2;
-  } else if (productId === product3.productId) {
-    product = product3;
-  }
+  
+  productId === product1.productId ? product = product1 :
+    
+  productId === product2.productId ? product = product2 :
+    
+  productId === product3.productId ? product = product3 : null;
 
   product.quantity += 1;
 }
@@ -111,15 +110,14 @@ function increaseQuantity(productId) {
 function decreaseQuantity(productId) {
   let product;
 
-  if (productId === product1.productId) {
-    product = product1;
-  } else if (productId === product2.productId) {
-    product = product2;
-  } else if (productId === product3.productId) {
-    product = product3;
-  }
+  productId === product1.productId ? product = product1 :
+    
+  productId === product2.productId ? product = product2 :
+    
+  productId === product3.productId ? product = product3 : null;
 
   product.quantity -= 1;
+
   if (product.quantity === 0) {
     let index = cart.indexOf(product);
     cart.splice(index, 1);
@@ -136,15 +134,14 @@ function decreaseQuantity(productId) {
 function removeProductFromCart(productId) {
   let product;
 
-  if (productId === product1.productId) {
-    product = product1;
-  } else if (productId === product2.productId) {
-    product = product2;
-  } else if (productId === product3.productId) {
-    product = product3;
-  }
+  productId === product1.productId ? product = product1 :
+    
+  productId === product2.productId ? product = product2 :
+    
+  productId === product3.productId ? product = product3 : null;
 
   product.quantity = 0;
+
   let index = cart.indexOf(product);
   cart.splice(index, 1);
 }
@@ -161,6 +158,7 @@ function cartTotal() {
   cart.forEach(function (item) {
     total += item.price * item.quantity;
   });
+  
   return total;
 }
 
