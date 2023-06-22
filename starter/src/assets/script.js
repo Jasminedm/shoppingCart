@@ -60,20 +60,29 @@ let cart = [];
 
 
 
-/* Create a function named addProductToCart that takes in the product productId as an argument
-  - addProductToCart should get the correct product based on the productId
-  - addProductToCart should then increase the product's quantity
-  - if the product is not already in the cart, add it to the cart
-*/
-function addProductToCart(productId) {
-  let product;
+// CREATING A FUNCTION THAT WILL HANDLE THE GETTING THE CORRECT PRODUCT BY ID
+// this function will take in the product id
+// then use ternary operater conditionals to find the product based on the productId
+// return the product
+function getProductById(productId){
+let product;
 
   productId === product1.productId ? product = product1 :
     
   productId === product2.productId ? product = product2 :
     
   productId === product3.productId ? product = product3 : null;
-  
+
+  return product;
+}
+
+/* Create a function named addProductToCart that takes in the product productId as an argument
+  - addProductToCart should get the correct product based on the productId
+  - addProductToCart should then increase the product's quantity
+  - if the product is not already in the cart, add it to the cart
+*/
+function addProductToCart(productId) {
+  let product = getProductById(productId);
 
   product.quantity += 1;
 
@@ -89,13 +98,7 @@ function addProductToCart(productId) {
   - increaseQuantity should then increase the product's quantity
 */
 function increaseQuantity(productId) {
-  let product;
-  
-  productId === product1.productId ? product = product1 :
-    
-  productId === product2.productId ? product = product2 :
-    
-  productId === product3.productId ? product = product3 : null;
+  let product = getProductById(productId);
 
   product.quantity += 1;
 }
@@ -108,13 +111,7 @@ function increaseQuantity(productId) {
   - if the function decreases the quantity to 0, the product is removed from the cart
 */
 function decreaseQuantity(productId) {
-  let product;
-
-  productId === product1.productId ? product = product1 :
-    
-  productId === product2.productId ? product = product2 :
-    
-  productId === product3.productId ? product = product3 : null;
+  let product = getProductById(productId);
 
   product.quantity -= 1;
 
@@ -132,13 +129,7 @@ function decreaseQuantity(productId) {
   - removeProductFromCart should remove the product from the cart
 */
 function removeProductFromCart(productId) {
-  let product;
-
-  productId === product1.productId ? product = product1 :
-    
-  productId === product2.productId ? product = product2 :
-    
-  productId === product3.productId ? product = product3 : null;
+  let product = getProductById(productId);
 
   product.quantity = 0;
 
@@ -175,8 +166,11 @@ function emptyCart() {
   - pay will return a negative number if there is a remaining balance
   - pay will return a positive number if money should be returned to customer
 */
-function pay(totalPaid) {
+let totalPaid = 0;
+
+function pay(amount) {
   let total = cartTotal();
+  totalPaid += amount
 
   return totalPaid - total
 }
