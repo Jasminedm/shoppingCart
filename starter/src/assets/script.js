@@ -143,6 +143,8 @@ function removeProductFromCart(productId) {
   - cartTotal should iterate through the cart to get the total of all products
   - cartTotal should return the sum of the products in the cart
 */
+let totalPaid = 0;
+
 function cartTotal() {
   let total = 0;
 
@@ -166,7 +168,7 @@ function emptyCart() {
   - pay will return a negative number if there is a remaining balance
   - pay will return a positive number if money should be returned to customer
 */
-let totalPaid = 0;
+
 
 function pay(amount) {
   let total = cartTotal();
